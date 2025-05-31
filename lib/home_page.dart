@@ -1,7 +1,185 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+
+  List<Map<String, dynamic>> mData = [
+    {
+      "name" : "Raman",
+      "mob_no" : "9879876786",
+      "bg_color" : Colors.purple
+    },
+
+    {
+      "name" : "Ramesh",
+      "mob_no" : "9698979594",
+      "bg_color" : Colors.green
+    },
+
+    {
+      "name" : "Raghav",
+      "mob_no" : "6756756789",
+      "bg_color" : Colors.amber
+    },
+
+    {
+      "name" : "Rajeev",
+      "mob_no" : "987698769",
+      "bg_color" : Colors.brown
+    },
+
+    {
+      "name" : "Raghvendra",
+      "mob_no" : "7897897890",
+      "bg_color" : Colors.blue
+    },
+
+    {
+      "name" : "Rajesh",
+      "mob_no" : "9119223883",
+      "bg_color" : Colors.red
+    },
+    {
+      "name" : "Raman",
+      "mob_no" : "9879876786",
+      "bg_color" : Colors.purple
+    },
+
+    {
+      "name" : "Ramesh",
+      "mob_no" : "9698979594",
+      "bg_color" : Colors.green
+    },
+
+    {
+      "name" : "Raghav",
+      "mob_no" : "6756756789",
+      "bg_color" : Colors.amber
+    },
+
+    {
+      "name" : "Rajeev",
+      "mob_no" : "987698769",
+      "bg_color" : Colors.brown
+    },
+
+    {
+      "name" : "Raghvendra",
+      "mob_no" : "7897897890",
+      "bg_color" : Colors.blue
+    },
+
+    {
+      "name" : "Rajesh",
+      "mob_no" : "9119223883",
+      "bg_color" : Colors.red
+    },
+    {
+      "name" : "Raman",
+      "mob_no" : "9879876786",
+      "bg_color" : Colors.purple
+    },
+
+    {
+      "name" : "Ramesh",
+      "mob_no" : "9698979594",
+      "bg_color" : Colors.green
+    },
+
+    {
+      "name" : "Raghav",
+      "mob_no" : "6756756789",
+      "bg_color" : Colors.amber
+    },
+
+    {
+      "name" : "Rajeev",
+      "mob_no" : "987698769",
+      "bg_color" : Colors.brown
+    },
+
+    {
+      "name" : "Raghvendra",
+      "mob_no" : "7897897890",
+      "bg_color" : Colors.blue
+    },
+
+    {
+      "name" : "Rajesh",
+      "mob_no" : "9119223883",
+      "bg_color" : Colors.red
+    },
+    {
+      "name" : "Raman",
+      "mob_no" : "9879876786",
+      "bg_color" : Colors.purple
+    },
+
+    {
+      "name" : "Ramesh",
+      "mob_no" : "9698979594",
+      "bg_color" : Colors.green
+    },
+
+    {
+      "name" : "Raghav",
+      "mob_no" : "6756756789",
+      "bg_color" : Colors.amber
+    },
+
+    {
+      "name" : "Rajeev",
+      "mob_no" : "987698769",
+      "bg_color" : Colors.brown
+    },
+
+    {
+      "name" : "Raghvendra",
+      "mob_no" : "7897897890",
+      "bg_color" : Colors.blue
+    },
+
+    {
+      "name" : "Rajesh",
+      "mob_no" : "9119223883",
+      "bg_color" : Colors.red
+    },
+    {
+      "name" : "Raman",
+      "mob_no" : "9879876786",
+      "bg_color" : Colors.purple
+    },
+
+    {
+      "name" : "Ramesh",
+      "mob_no" : "9698979594",
+      "bg_color" : Colors.green
+    },
+
+    {
+      "name" : "Raghav",
+      "mob_no" : "6756756789",
+      "bg_color" : Colors.amber
+    },
+
+    {
+      "name" : "Rajeev",
+      "mob_no" : "987698769",
+      "bg_color" : Colors.brown
+    },
+
+    {
+      "name" : "Raghvendra",
+      "mob_no" : "7897897890",
+      "bg_color" : Colors.blue
+    },
+
+    {
+      "name" : "Rajesh",
+      "mob_no" : "9119223883",
+      "bg_color" : Colors.red
+    },
+
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -9,55 +187,84 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: Container(
-        color: Colors.grey,
-        width: 400,
-        height: 600,
-        child: Stack(
-          children: [
-            Container(
-              width: 300,
-              height: 300,
-              color: Colors.purple,
+      body: ListView(
+        children: mData.map((eachItem){
+          return Container(
+            width: double.infinity,
+            height: 100,
+            color: eachItem['bg_color'],
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  eachItem['name'],
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white
+                  ),
+                ),
+                Text(
+                  eachItem['mob_no'],
+                  style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.white
+                  ),
+                ),
+              ],
             ),
-            Center(
-              child: Container(
-                width: 300,
-                height: 300,
-                color: Colors.orange,
-              ),
-            ),
-            Center(
-              child: Container(
-                width: 200,
-                height: 200,
-                color: Colors.blue,
-              ),
-            ),
-
-            Align(
-              alignment: Alignment.topRight,
-              child: Container(
-                margin: EdgeInsets.only(right: 21),
-                width: 200,
-                height: 200,
-                color: Colors.amber,
-              ),
-            ),
-            Positioned(
-              right: 21,
-              bottom: 70,
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.brown,
-              ),
-            ),
-          ],
-        ),
+          );
+        }).toList(),
       )
     );
   }
+
+  ///Container(
+//         color: Colors.grey,
+//         width: 400,
+//         height: 600,
+//         child: Stack(
+//           children: [
+//             Container(
+//               width: 300,
+//               height: 300,
+//               color: Colors.purple,
+//             ),
+//             Center(
+//               child: Container(
+//                 width: 300,
+//                 height: 300,
+//                 color: Colors.orange,
+//               ),
+//             ),
+//             Center(
+//               child: Container(
+//                 width: 200,
+//                 height: 200,
+//                 color: Colors.blue,
+//               ),
+//             ),
+//
+//             Align(
+//               alignment: Alignment.topRight,
+//               child: Container(
+//                 margin: EdgeInsets.only(right: 21),
+//                 width: 200,
+//                 height: 200,
+//                 color: Colors.amber,
+//               ),
+//             ),
+//             Positioned(
+//               right: 21,
+//               bottom: 70,
+//               child: Container(
+//                 width: 100,
+//                 height: 100,
+//                 color: Colors.brown,
+//               ),
+//             ),
+//           ],
+//         ),
+//       )
 
   ///Container(
 //         color: Colors.grey,
