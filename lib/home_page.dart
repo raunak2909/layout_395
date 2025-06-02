@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  int count = 0;
 
   List<Map<String, dynamic>> mData = [
     {
@@ -181,42 +182,94 @@ class HomePage extends StatelessWidget {
 
   ];
 
+
+
+  void add(Function(int, int, int) a){
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
+
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: ListView(
-        children: mData.map((eachItem){
-          return Container(
-            width: double.infinity,
-            height: 100,
-            color: eachItem['bg_color'],
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  eachItem['name'],
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white
-                  ),
+      body: Container(
+        height: 340,
+        padding: EdgeInsets.only(right: 11),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: mData.length,
+            itemBuilder: (_,index){
+            print(index);
+              return Container(
+                margin: EdgeInsets.only(left: 11),
+                width: 190,
+                decoration: BoxDecoration(
+                  color: mData[index]['bg_color'],
+                  borderRadius: BorderRadius.circular(21)
                 ),
-                Text(
-                  eachItem['mob_no'],
-                  style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      mData[index]['name'],
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white
+                      ),
+                    ),
+                    Text(
+                      mData[index]['mob_no'],
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.white
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          );
-        }).toList(),
+              );
+            }
+        ),
       )
     );
   }
+
+  ///ListView(
+  //         children: mData.map((eachItem){
+  //           count++;
+  //           print(count);
+  //           return Container(
+  //             width: double.infinity,
+  //             height: 100,
+  //             color: eachItem['bg_color'],
+  //             child: Column(
+  //               mainAxisAlignment: MainAxisAlignment.center,
+  //               children: [
+  //                 Text(
+  //                   eachItem['name'],
+  //                   style: TextStyle(
+  //                       fontSize: 20,
+  //                       color: Colors.white
+  //                   ),
+  //                 ),
+  //                 Text(
+  //                   eachItem['mob_no'],
+  //                   style: TextStyle(
+  //                       fontSize: 12,
+  //                       color: Colors.white
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //           );
+  //         }).toList(),
+  //       )
+
 
   ///Container(
 //         color: Colors.grey,
