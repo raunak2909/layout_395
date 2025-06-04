@@ -6,14 +6,14 @@ class HomePage extends StatelessWidget {
   List<Map<String, dynamic>> mData = [
     {
       "name" : "Raman",
-      "mob_no" : "9879876786",
-      "bg_color" : Colors.purple
+      "mob_no" : "",
+      "bg_color" : Color(0XFFaA8181),
     },
 
     {
       "name" : "Ramesh",
       "mob_no" : "9698979594",
-      "bg_color" : Colors.green
+      "bg_color" : Colors.orange.withAlpha(129)
     },
 
     {
@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
 
     {
       "name" : "Rajeev",
-      "mob_no" : "987698769",
+      "mob_no" : "",
       "bg_color" : Colors.brown
     },
 
@@ -193,51 +193,130 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-
     return Scaffold(
+      backgroundColor: Color.fromRGBO(255, 0, 0, 1),
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: Container(
-        height: 340,
-        padding: EdgeInsets.only(right: 11),
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
+      body: GridView.builder(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200,
+            mainAxisSpacing: 11,
+            crossAxisSpacing: 11,
+            childAspectRatio: 9/16
+          ),
           itemCount: mData.length,
-            itemBuilder: (_,index){
-            print(index);
-              return Container(
-                margin: EdgeInsets.only(left: 11),
-                width: 190,
-                decoration: BoxDecoration(
-                  color: mData[index]['bg_color'],
-                  borderRadius: BorderRadius.circular(21)
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      mData[index]['name'],
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white
-                      ),
+          itemBuilder: (_, index){
+            return Container(
+              width: double.infinity,
+              height: 100,
+              color: mData[index]['bg_color'],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    mData[index]['name'],
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white
                     ),
-                    Text(
-                      mData[index]['mob_no'],
-                      style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.white
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.favorite_border, color: Colors.red,),
+                      Text(
+                        mData[index]['mob_no'],
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.white
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              );
-            }
-        ),
-      )
+                    ],
+                  ),
+                ],
+              ),
+            );
+          })
+
+
+
+
+      /*GridView.count(
+        mainAxisSpacing: 11,
+        crossAxisSpacing: 11,
+        crossAxisCount: 200, children: mData.map((eachItem){
+                count++;
+                print(count);
+                return Container(
+                  width: double.infinity,
+                  height: 100,
+                  color: eachItem['bg_color'],
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        eachItem['name'],
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white
+                        ),
+                      ),
+                      Text(
+                        eachItem['mob_no'],
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),)*/
     );
   }
+
+  ////Container(
+//         height: 340,
+//         padding: EdgeInsets.only(right: 11),
+//         child: ListView.builder(
+//           scrollDirection: Axis.horizontal,
+//           itemCount: mData.length,
+//             itemBuilder: (_,index){
+//             print(index);
+//               return Container(
+//                 margin: EdgeInsets.only(left: 11),
+//                 width: 190,
+//                 decoration: BoxDecoration(
+//                   color: mData[index]['bg_color'],
+//                   borderRadius: BorderRadius.circular(21)
+//                 ),
+//                 child: Column(
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   children: [
+//                     Text(
+//                       mData[index]['name'],
+//                       style: TextStyle(
+//                           fontSize: 20,
+//                           color: Colors.white
+//                       ),
+//                     ),
+//                     Visibility(
+//                       visible: mData[index]['mob_no']!="",
+//                       child: Text(
+//                         ///?:
+//                         mData[index]['mob_no']!="" ? mData[index]['mob_no'] : "No Number",
+//                         style: TextStyle(
+//                             fontSize: 12,
+//                             color: Colors.white
+//                         ),
+//                       ) ,
+//                     ),
+//                   ],
+//                 ),
+//               );
+//             }
+//         ),
+//       )
 
   ///ListView(
   //         children: mData.map((eachItem){
